@@ -45,8 +45,10 @@ p {
 }
 
 .logo-icon {
-    display: block;
+    display: inline-block;
     font-weight: bold;
+    border-top: 3px solid antiquewhite;
+    border-bottom: 3px solid  darkred;
     font-size: 30px;
     font-family: 'Roboto+Slab', serif ;
     color:antiquewhite;
@@ -65,6 +67,7 @@ p {
     margin-right: 25px;
 }
 
+
 .item.nav:last-child {
     margin-right: 0px;
 }
@@ -82,6 +85,12 @@ p {
 color: coral;
 }
 
+.item.nav .current {
+    border-bottom: 2px solid antiquewhite;
+    border-top: 2px solid antiquewhite;
+    color:azure;
+}
+
 .section.hero {
     text-align: center;
     padding-top: 100px;
@@ -95,7 +104,7 @@ color: coral;
     margin-bottom: 50px;
 }
 
-.button.hero {  
+.button-hero {  
     margin-right: 25px;
     border-radius: 20px;
      min-width: 150px;
@@ -108,19 +117,31 @@ color: coral;
     cursor: pointer;
 }
 
-.button.hero:last-child {
+.button-hero.other {
+    background-color:slategray; 
+}
+
+.button-hero.other:hover,
+.button-hero.other:focus {
+    background-color:coral; 
+}
+
+.button-hero:last-child {
     margin-right: 0;
 }
 
-.button.hero:hover,
-.button.hero:focus {
+.button-hero:hover,
+.button-hero:focus {
     background-color:slategray;
     color: black;
 }
 
+/* Наши преимущества */
+
 .section.benefits {
     background-color: azure;
-    padding-bottom: 30px;
+    padding-bottom: 25px;
+    padding-top: 25px;
 }
 
 .title.section {
@@ -153,8 +174,12 @@ color: coral;
 }
 
 
+
+/* Наши направления */
+
 .section.ways {
-    padding-bottom: 30px;
+    padding-bottom: 25px;
+    padding-top: 25px;
     background-color: blanchedalmond;
 }
 
@@ -177,9 +202,15 @@ color: coral;
     margin-right: 0;
 }
 
-.section.masters {
+
+/* Наши мастера */
+
+.section.masters { 
+
+    padding-bottom: 25px;
+    padding-top: 25px;
+
     background-color: azure;
-    padding-bottom: 30px;
 }
 
 .container.masters {
@@ -206,6 +237,8 @@ color: coral;
     color: darkred;
 }
 
+/* ФУТЕР */
+
 .text.masters {
     color: brown;
 }
@@ -230,11 +263,10 @@ color: coral;
 .link.adress {
     font-size: 16px;
     line-height: 1.6;
-    color: darkred; 
+    color:antiquewhite;
 }
 
-
-
-
-
-
+.link.adress:hover,
+.link.adress:focus {
+    color: coral;
+}
