@@ -3,7 +3,11 @@ body {
     font-family: 'Jost', sans-serif;
     background-color:whitesmoke;
 }
-    
+   
+html {
+    scroll-behavior: smooth;
+}
+
 /* Утилиты */
 h1, h2, h3, h4, h5, h6,
 p {
@@ -73,6 +77,7 @@ p {
 }
 
 .link.nav {
+    position: relative;
     display: block;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -85,18 +90,28 @@ p {
 color: coral;
 }
 
-.item.nav .current {
-    border-bottom: 2px solid antiquewhite;
-    border-top: 2px solid antiquewhite;
-    color:azure;
+.link.nav.current::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: coral ;
+
+    bottom: -7px;
+    left: 0;
+    
 }
 
+
 .section.hero {
+    display: flex;
     max-width: 1600px;
     min-height: 560px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    align-items: center;
     padding-top: 100px;
     padding-bottom: 100px;
     background-color:cornsilk;
@@ -108,32 +123,58 @@ color: coral;
    
 }
 
+.backdrop {
+top: 0;
+ left: 0;
+  position: fixed;  
+  width: 100%;
+  height: 100%;
+  background-color:  rgba(0, 0, 0, 0.4);
 
-/* .section.hero {
-    max-width: 1600px;
-    min-height: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 200px;
-    padding-bottom: 200px;
-    text-align: center;
-    background-color: var(--secondary-background-color);
-    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-        url(../images/hero-img.jpg);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1)
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-} */
+}
 
 
+.backdrop.is-hidden {
+    opacity:0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modal-wrapper {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: antiquewhite;
+    border-radius: 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-button {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color:coral;
+    border-radius: 50%;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .title.hero {
     font-size: 40px;
-    color: brown;
+    color: #710217f0;
     margin-bottom: 50px;
 }
+        
 
 .button-hero {  
     margin-right: 25px;
@@ -146,6 +187,9 @@ color: coral;
     color: blanchedalmond ;
     font-size: 18px;
     cursor: pointer;
+
+    transform: scale(1);
+    transition: transform 250ms linear;
 }
 
 .button-hero.other {
@@ -165,7 +209,10 @@ color: coral;
 .button-hero:focus {
     background-color:slategray;
     color: black;
+    transform: scale(1.3);
 }
+
+ 
 
 /* Наши преимущества */
 
@@ -174,6 +221,7 @@ color: coral;
     padding-bottom: 25px;
     padding-top: 25px;
 }
+
 
 .title.section {
     color:chocolate;
@@ -184,6 +232,7 @@ color: coral;
 .list.benefits {
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 .item.benefits {
@@ -268,14 +317,18 @@ color: coral;
     color: darkred;
 }
 
+
+
 /* ФУТЕР */
+
+
 
 .container.footer {
     display: flex;
     align-items: baseline;
 }
 
-.logo-icon.link {
+.footer .logo-icon {
     margin-bottom: 25px;
 }
 
@@ -324,6 +377,7 @@ color: coral;
 
 .list.networks {
     display: flex;
+    
 }
 
 .item.networks:not(:last-child) {
@@ -340,11 +394,15 @@ color: coral;
     background-color:dimgray;
     color: white;
 
+    transform: scale(1);
+    transition: transform 100ms linear;
+
 } 
 
 .link.networks:hover  {
     background-color:white;
     color:dimgray;
+    transform: scale(1.3);
 }
 
 .icon.facebook,
@@ -353,6 +411,8 @@ color: coral;
 .icon.twitter {
     fill: currentColor;
 }
+
+
 
 
 
